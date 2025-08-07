@@ -5,5 +5,3 @@ export const sum = (a, b) => {
 export const sayHello = () => {
   console.log("Meu primeiro modulo publicado no NPM");
 };
-
-// Teste
