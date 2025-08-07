@@ -1,0 +1,15 @@
+{
+  "name": "fsc-modulos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "Guilherme Bueno",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.1.10",
+    "uuid": "^11.1.0"
+  }
+}
