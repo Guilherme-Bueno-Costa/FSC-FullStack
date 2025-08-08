@@ -6,6 +6,6 @@
 <p>Este repositório tem como propósito organizar de forma concisa e objetiva meus estudos, observações e insights no que compete a Front-end, Back-end e suas tecnologias.</p>
 
 <h2> 📚 &nbsp;Estrutura do repositório</h2>
-<p>Este repositório será dividido em brenchs, onde cada Brench será direcionada para um estudo específico </p>
+<p>Este repositório será dividido em branches, onde cada Branche será direcionada para um estudo específico </p>
 
 
