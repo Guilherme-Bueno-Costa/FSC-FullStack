@@ -12,7 +12,7 @@
  <br/>
  <h2>🎓 &nbsp;Módulos - Node.js</h2>
   
-Iniciei efetivamente os estudos de beck-end com o Node.js, aqui entendi um pouco sobre o que são módulos, qual sua aplicação e como utilizá-los. Além disso me familiarizei com o gerenciador de pacotes NPM e como utilizar, além de como criar meu primeiro pacote e publicar no NPM.
+Iniciei efetivamente os estudos de back-end com o Node.js, aqui entendi um pouco sobre o que são módulos, qual sua aplicação e como utilizá-los. Além disso me familiarizei com o gerenciador de pacotes NPM e como utilizar, além de como criar meu primeiro pacote e publicar no NPM.
 Aqui destaco os principais pontos referente a esses estudos que me chamou a atenção:
 
 - O método para a instalação das bibliotecas;
@@ -26,3 +26,18 @@ Aqui destaco os principais pontos referente a esses estudos que me chamou a aten
 <h1 align="center">  
  <br/>
  <h2>🎓 &nbsp;Node Assíncrono</h2>
+
+A característica assíncrona do Node é de grande importancia para entendimento de funcionamento da aplicação e como isso influencia na escrita de um código. Pude compreender o funcionamento da execução de códigos síncronos assíncrono. Resumidamente códigos síncronos são executados sequencialmente, enquanto os assincronos são executados em segundo plano, pois levam um tempo para serem processados. Aqui ressalto o brilho do node quanto a essa execução, pois ele não bloqueia a execução do restante do código enquanto processa um código assincrono e isso ocorre porque:
+
+- O node envia os códigos síncronos para o call-stack (local onde as operações são executadas);
+- Os códigos assincronos são enviados para o call-back onde são processados paralelamente ao call-stack;
+- Após finalização da execução desses códigos, eles são enviados para o call-back queue, onde são gerenciados pelo Event Loop que só irá liberar o código assincrono para o call-stack após este estar vazio.
+
+**Controle de execução assíncrona:**
+- Callback Function: função passada como parâmetro, define quando executar. Pode gerar “callback hell”.
+- Promises (.then/.catch): mais legível, tratamento centralizado de erros, ainda pode ter encadeamentos longos.
+- Async/Await: mais moderno, código parecido com síncrono, mais fácil de ler.
+
+**Execução simultânea de múltiplas promises:**
+- Promise.all(): espera todas serem resolvidas ou falha se uma rejeitar.
+- Promise.allSettled(): espera todas terminarem e retorna status de cada uma.
