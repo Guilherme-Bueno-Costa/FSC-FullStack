@@ -8,7 +8,6 @@
 <h2> 📚 &nbsp;Estrutura do repositório</h2>
 <p>Este repositório será dividido em branches, onde cada Branche será direcionada para um estudo específico. Abaixo será descrito um resumo do que foi estudado, porque e os insights adquiridos.</p>
 
-<!-- BRANCHE MAIN -  -->
 <h1 align="center">  
  <br/>
  <h2>🎓 &nbsp;Módulos - Node.js</h2>
@@ -23,3 +22,7 @@ Aqui destaco os principais pontos referente a esses estudos que me chamou a aten
 - Como realizar a criação de uma biblioteca, bem como sua publicação em plataformas como NPM.
 
   Esse estudo me possibilitou me familiarizar mais com os módulos do Node.js, a partir disso, espero conseguir, futuramente, manipular as bibliotecas de forma a otimizar tanto meu código em produção, quanto meu código em desenvolvimento, por consequência, meu workflow.
+
+<h1 align="center">  
+ <br/>
+ <h2>🎓 &nbsp;Node Assíncrono</h2>
