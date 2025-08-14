@@ -41,3 +41,17 @@ A característica assíncrona do Node é de grande importancia para entendimento
 **Execução simultânea de múltiplas promises:**
 - Promise.all(): espera todas serem resolvidas ou falha se uma rejeitar.
 - Promise.allSettled(): espera todas terminarem e retorna status de cada uma.
+
+<h1 align="center">  
+ <br/>
+ <h2>🎓 &nbsp;API's</h2>
+
+ **API (Application Programming Interface):** É um conjunto de rotas, métodos, formatos de dados e regras que permitem que sistemas diferentes se comuniquem. Basicamente é um intermediário. No contexto de desenvolvimento web é a "ferramente" do back-end que é responsável pela comunicação entre front-end e o banco de dados.
+ Seus principais componentes são:
+ - Endpoints (basicamente as URLs);
+ - Métodos HTTP;
+ - Parâmetros (informações adicionais para filtrar ou personalizar o retorno dessas URLs);
+ - Corpo de requisição - request (Dados enviados, normalmente em JSON);
+ - Respostas - response (Retorno da API, também em JSON);
+
+## Requisições HTTP
