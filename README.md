@@ -17,10 +17,11 @@
 A construção do back-end iniciou pela estruturação da API, bem como a conexão com o banco de dados (MongoDB - banco de dados do tipo NoSQL, guarda dados em documentos JSON-like).
 
 Foi realizado os seguintes passos (com possíveis observações):
+
 - Criação do _package.json_ e sua configuração;
-- Instalação das dependências: 
-  - express(framework para facilitar a criação de API's e servidores), 
-  - nodemon(ferramenta para facilitar desenvolvimento - atualiza o server sempre que uma alteração ocorrer), 
+- Instalação das dependências:
+  - express(framework para facilitar a criação de API's e servidores),
+  - nodemon(ferramenta para facilitar desenvolvimento - atualiza o server sempre que uma alteração ocorrer),
   - dotenv (possibilita a criação de arquivos .env onde são armazenados variáveis de ambiente)
   - mongoose (facilita a operação do MongoDB no Node);
 - Criação do .env para armazenagem das variáveis de ambiente;
@@ -28,13 +29,14 @@ Foi realizado os seguintes passos (com possíveis observações):
 - Criação do arquivo index.js (1)
 - Criação do arquivo mongoose.database.js para criação do link com o MongoDB (2);
 
-(1) - Neste arquivo foi realizado a estruturação inicial da API, juntamente com a conexão junto ao banco de dados para tal foi realizado as importações das dependencias necessárias (dotenv, express) e a função estabelecida para conexão com o banco de dados. Em seguida foi definido uma rota GET para entender o funcionamento de uma requisição HTTP e, posteriormente, definido  a porta na qual o servidor será iniciado.
+(1) - Neste arquivo foi realizado a estruturação inicial da API, juntamente com a conexão junto ao banco de dados para tal foi realizado as importações das dependencias necessárias (dotenv, express) e a função estabelecida para conexão com o banco de dados. Em seguida foi definido uma rota GET para entender o funcionamento de uma requisição HTTP e, posteriormente, definido a porta na qual o servidor será iniciado.
 
 (2) - Necessário realizar importação da dependencia mongoose, criar uma função para associar ao MongoDB e definir mensagens para retorno de sucesso ou falha na conexão com banco de dados.
 
 ## Próximos passos:
-- [ ] - Criar models e rotas para listar as tarefas;
-- [ ] - Instalar o Postman;
+
+- [x] - Criar models e rotas para listar as tarefas;
+- [x] - Instalar o Postman;
 - [ ] - Definir rota para processo de criação de tarefas;
 - [ ] - Definir rota para processo de deleção de tarefas;
 - [ ] - Definir rota para processo de recuperação de tarefas;
