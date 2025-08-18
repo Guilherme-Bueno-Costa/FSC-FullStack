@@ -14,6 +14,8 @@
   
 **IMPORTANTE:** Back-end ainda em desenvolvimento, tanto estrutural quanto da minha base de conhecimento, portanto podem ocorrer erros em alguns entendimentos. Em breve atualizações da construção do back, bem como possíveis correções de observações e assimilações que, por ventura, possam incorrer errôneamente.
 
+## Configurações iniciais do back-end
+
 A construção do back-end iniciou pela estruturação da API, bem como a conexão com o banco de dados (MongoDB - banco de dados do tipo NoSQL, guarda dados em documentos JSON-like).
 
 Foi realizado os seguintes passos (com possíveis observações):
@@ -33,12 +35,23 @@ Foi realizado os seguintes passos (com possíveis observações):
 
 (2) - Necessário realizar importação da dependencia mongoose, criar uma função para associar ao MongoDB e definir mensagens para retorno de sucesso ou falha na conexão com banco de dados.
 
-## Próximos passos:
+## Criação de models | Instalação e configuração do Postman | Rotas: Consulting Tasks, Create Task, Delete Task
+
+A criação das rotas é de grande importancia pois as rotas são as responsáveis pela aplicação de determinadas ações (ex: deletar um item do banco de dados).
+Dito isso, o processo consiste basicamente em aplicar a model (que funciona como um esqueleto que o documento no campo deverá seguir - aplicando o Scheme(obrigado mondoose)) durante o processo de criação da rota, onde nele será estabelecido o processo. Exemplo: salvar uma task (utilizamos o .save()).
+Com relação ao Postman, este atua como um simulador de front-end para testarmos as interações da API com o banco de dados.
+Abaixo destaco os pontos que me chamaram atenção:
+
+- Função utiliza o async await para ser executada;
+- Utilizamos os parâmetros req e res, onde o req (required) atua como um parâmetro de requisição e o res (response) como um parâmetro de retorno;
+- Na rota de deleção de taskutilizamoso findByIdandDelete como método, porém aqui uma ressalva: este não possuí mensagem de retorno de erro (ex: caso não ache a task)
+
+### Próximos passos:
 
 - [x] - Criar models e rotas para listar as tarefas;
 - [x] - Instalar o Postman;
-- [ ] - Definir rota para processo de criação de tarefas;
-- [ ] - Definir rota para processo de deleção de tarefas;
+- [x] - Definir rota para processo de criação de tarefas;
+- [x] - Definir rota para processo de deleção de tarefas;
 - [ ] - Definir rota para processo de recuperação de tarefas;
 - [ ] - Definir rota para processo de atualização de tarefas;
 - [ ] - Criar arquivos para rotas de entidades diferentes;
