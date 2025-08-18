@@ -26,9 +26,7 @@ app.get("/tasks", async (req, res) => {
   }
 });
 
-// Inicia o servidor na porta 8000
-app.listen(8000, () => console.log("Listening to port 8000!"));
-
+// Define uma rota POST para criar novas tasks e salvar no banco de dados
 app.post("/tasks", async (req, res) => {
   try {
     const newTask = new TaskModel(req.body);
@@ -40,3 +38,21 @@ app.post("/tasks", async (req, res) => {
     res.status(500).send(error.message);
   }
 });
+
+// Define rota DELETE para deletar uma task
+app.delete("/tasks/:id", async (req, res) => {
+  try {
+    const taskId = req.params.id;
+    const taskToDelete = await TaskModel.findById(taskId);
+    if (!taskToDelete) {
+      return res.status(500).send("Essa tarefa não foi encontrada!");
+    }
+    const deletedTask = await TaskModel.findByIdandDelete(taskId);
+
+    res.status(300).send(deletedTask);
+  } catch (error) {}
+  res.status(500).send(error.message);
+});
+
+// Inicia o servidor na porta 8000
+app.listen(8000, () => console.log("Listening to port 8000!"));
