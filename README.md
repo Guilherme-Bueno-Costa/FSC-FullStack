@@ -52,8 +52,8 @@ Abaixo destaco os pontos que me chamaram atenção:
 - [x] - Instalar o Postman;
 - [x] - Definir rota para processo de criação de tarefas;
 - [x] - Definir rota para processo de deleção de tarefas;
-- [ ] - Definir rota para processo de recuperação de tarefas;
-- [ ] - Definir rota para processo de atualização de tarefas;
+- [x] - Definir rota para processo de recuperação de tarefas;
+- [x] - Definir rota para processo de atualização de tarefas;
 - [ ] - Criar arquivos para rotas de entidades diferentes;
 - [ ] - Instalar e entender MongoDB Compass;
 - [ ] - Aplicar arquitetura MVC;
