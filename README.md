@@ -44,7 +44,10 @@ Abaixo destaco os pontos que me chamaram atenção:
 
 - Função utiliza o async await para ser executada;
 - Utilizamos os parâmetros req e res, onde o req (required) atua como um parâmetro de requisição e o res (response) como um parâmetro de retorno;
-- Na rota de deleção de taskutilizamoso findByIdandDelete como método, porém aqui uma ressalva: este não possuí mensagem de retorno de erro (ex: caso não ache a task)
+- Na rota de deleção de taskutilizamoso findByIdandDelete como método, porém aqui uma ressalva: este não possuí mensagem de retorno de erro (ex: caso não ache a task);
+- Funções como findByIdAndUpdate e findByIdAndDelete não possuem retorno de erro;
+- No findByIdAndUpdate, utiliza-se 2 argumentos: o id do item a ser atualizado e a atualização;
+- A diferença entre o PATCH e o PUT é que o PUT atualiza completamente os itens da ID, enquanto o PATCH atualiza apenas o item desejado;
 
 #### Próximos passos:
 
@@ -54,7 +57,7 @@ Abaixo destaco os pontos que me chamaram atenção:
 - [x] - Definir rota para processo de deleção de tarefas;
 - [x] - Definir rota para processo de recuperação de tarefas;
 - [x] - Definir rota para processo de atualização de tarefas;
-- [ ] - Criar arquivos para rotas de entidades diferentes;
+- [x] - Criar arquivos para rotas de entidades diferentes;
 - [ ] - Instalar e entender MongoDB Compass;
 - [ ] - Aplicar arquitetura MVC;
 - [ ] - Validar tratamento de erros;
