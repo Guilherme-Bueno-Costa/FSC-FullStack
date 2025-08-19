@@ -1,4 +1,5 @@
 const TaskModel = require("../models/task.model");
+const { notFoundError } = require("../errors/mongodb.errors");
 
 // Classe para definir as regras de negócio das rotas de requisição
 class TaskController {
@@ -24,7 +25,7 @@ class TaskController {
       const task = await TaskModel.findById(taskId);
 
       if (!task) {
-        return this.res.status(404).send("Essa tarefa não foi encontrado");
+        return notFoundError(this.res);
       }
 
       this.res.status(200).send(task);
@@ -54,7 +55,7 @@ class TaskController {
 
       const taskToUpdate = await TaskModel.findById(taskId);
       if (!taskToUpdate) {
-        return this.res.status(404).send("Essa tarefa não foi encontrada");
+        return notFoundError(this.res);
       }
       const updatedTask = await TaskModel.findByIdAndUpdate(taskId, taskData, {
         new: true,
@@ -74,7 +75,7 @@ class TaskController {
       const taskToDelete = await TaskModel.findById(taskId);
 
       if (!taskToDelete) {
-        return this.res.status(404).send("Essa tarefa não foi encontrada!");
+        return notFoundError(this.res);
       }
       const deletedTask = await TaskModel.findByIdAndDelete(taskId);
 
