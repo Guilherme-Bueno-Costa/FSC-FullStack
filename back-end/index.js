@@ -19,4 +19,5 @@ connectToDatabase();
 app.use("/tasks", TaskRouter);
 
 // Inicia o servidor na porta 8000
-app.listen(8000, () => console.log("Listening to port 8000!"));
+const PORT = process.env.PORT || 8000; // 8000 só como fallback local
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
