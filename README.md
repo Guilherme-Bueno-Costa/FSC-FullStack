@@ -58,8 +58,8 @@ Abaixo destaco os pontos que me chamaram atenção:
 - [x] - Definir rota para processo de recuperação de tarefas;
 - [x] - Definir rota para processo de atualização de tarefas;
 - [x] - Criar arquivos para rotas de entidades diferentes;
-- [ ] - Instalar e entender MongoDB Compass;
-- [ ] - Aplicar arquitetura MVC;
+- [x] - Instalar e entender MongoDB Compass;
+- [x] - Aplicar arquitetura MVC;
 - [ ] - Validar tratamento de erros;
 - [ ] - Entender e aplicar CI/CD;
 - [ ] - Deploy;

@@ -2,16 +2,12 @@
 const express = require("express");
 const router = express.Router();
 
-const TaskModel = require("../model/task.model");
+const TaskController = require("../controllers/task.controller");
+const TaskModel = require("../models/task.model");
 
 // Define uma rota GET para encontrar as tasks salvas no banco de dados
 router.get("/", async (req, res) => {
-  try {
-    const tasks = await TaskModel.find({});
-    res.status(200).send(tasks);
-  } catch (error) {
-    res.status(500).send(error.message);
-  }
+  return new TaskController(req, res).getTasks();
 });
 
 // Define uma rota GET para exibir uma determinada task
