@@ -2,8 +2,8 @@
 const express = require("express");
 const router = express.Router();
 
-const TaskController = require("../../controllers/task.controller");
-const TaskModel = require("../task.model");
+const TaskController = require("../controllers/task.controller.js");
+const TaskModel = require("../models/task.model.js");
 
 // Define uma rota GET para encontrar as tasks salvas no banco de dados
 router.get("/", async (req, res) => {
