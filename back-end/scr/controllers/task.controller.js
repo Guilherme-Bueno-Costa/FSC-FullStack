@@ -1,5 +1,6 @@
 const TaskModel = require("../models/task.model");
-const { notFoundError } = require("../errors/mongodb.errors");
+const { notFoundError, objectIdError } = require("../errors/mongodb.errors");
+const { default: mongoose } = require("mongoose");
 
 // Classe para definir as regras de negócio das rotas de requisição
 class TaskController {
@@ -30,6 +31,9 @@ class TaskController {
 
       this.res.status(200).send(task);
     } catch (error) {
+      if (error instanceof mongoose.Error.CastError) {
+        return objectIdError(this.res);
+      }
       this.res.status(500).send(error.message);
     }
   }
@@ -54,6 +58,7 @@ class TaskController {
       const taskData = this.req.body;
 
       const taskToUpdate = await TaskModel.findById(taskId);
+
       if (!taskToUpdate) {
         return notFoundError(this.res);
       }
@@ -63,6 +68,9 @@ class TaskController {
 
       this.res.status(200).send(updatedTask);
     } catch (error) {
+      if (error instanceof mongoose.Error.CastError) {
+        return objectIdError(this.res);
+      }
       this.res.status(500).send(error.message);
     }
   }
@@ -83,6 +91,9 @@ class TaskController {
         .status(200)
         .send(`A tarefa ${deletedTask.description} foi deletada`);
     } catch (error) {
+      if (error instanceof mongoose.Error.CastError) {
+        return objectIdError(this.res);
+      }
       this.res.status(500).send(error.message);
     }
   }
