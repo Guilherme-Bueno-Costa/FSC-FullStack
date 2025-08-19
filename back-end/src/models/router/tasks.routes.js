@@ -2,32 +2,32 @@
 const express = require("express");
 const router = express.Router();
 
-const TaskController = require("../controllers/task.controller");
-const TaskModel = require("../models/task.model");
+const TaskController = require("../../controllers/task.controller");
+const TaskModel = require("../task.model");
 
 // Define uma rota GET para encontrar as tasks salvas no banco de dados
 router.get("/", async (req, res) => {
-  return new TaskController(req, res).getTasks();
+    return new TaskController(req, res).getTasks();
 });
 
 // Define uma rota GET para exibir uma determinada task
 router.get("/:id", async (req, res) => {
-  return new TaskController(req, res).showTask();
+    return new TaskController(req, res).showTask();
 });
 
 // Define uma rota POST para criar novas tasks e salvar no banco de dados
 router.post("/", async (req, res) => {
-  return new TaskController(req, res).createTask();
+    return new TaskController(req, res).createTask();
 });
 
 // Define rota PUT para atualizar uma task
 router.patch("/:id", async (req, res) => {
-  return new TaskController(req, res).updateTask();
+    return new TaskController(req, res).updateTask();
 });
 
 // Define rota DELETE para deletar uma task
 router.delete("/:id", async (req, res) => {
-  return new TaskController(req, res).deleteTask();
+    return new TaskController(req, res).deleteTask();
 });
 
 module.exports = router;
