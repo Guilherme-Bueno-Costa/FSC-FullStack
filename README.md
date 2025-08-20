@@ -8,7 +8,6 @@
 <h2> 📚 &nbsp;Estrutura do repositório</h2>
 <p>Este repositório será dividido em branches, onde cada Branche será direcionada para um estudo específico. Abaixo será descrito um resumo do que foi estudado, porque e os insights adquiridos.</p>
 
-<h1 align="center">  
  <br/>
  <h2>🎓 &nbsp;Back-end do projeto Task Manager</h2>
   
@@ -90,7 +89,6 @@ O deploy foi realizado na plataforma Render e nela foi integrado o pipeline de C
 -   [x] -   Entender e aplicar CI/CD;
 -   [x] -   Deploy;
 
-<h1 align="center">  
  <br/>
  <h2>🎓 &nbsp;Front-end do projeto Task Manager</h2>
 
