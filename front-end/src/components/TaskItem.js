@@ -1,9 +1,18 @@
-const TaskItem = (props) => {
-    // da pra fazer destructuring do props (usando {task}), aí tira o props do h1
+import { useEffect, useState } from "react";
+
+const TaskItem = ({ task }) => {
+    useEffect(() => {
+        console.log("component was mounted!");
+
+        return () => {
+            console.log("I will unmount");
+        };
+    }, []);
+
     return (
         <>
-            <h1>{props.task.description}</h1>
-            <p>{props.task.isCompleted ? "Finalizada" : "Não finalizada"}</p>
+            <h1>{task.description}</h1>
+            <p>{task.isCompleted ? "Finalizada" : "Não finalizada"}</p>
         </>
     );
 };
@@ -14,6 +23,14 @@ export default TaskItem;
 // Para usar Componentes de Classe segue abaixo exemplo
 // import React from "react";
 // class TaskItem extends React.Component {
+//     componentDidMount() {
+//         console.log("component was mounted");
+//     }
+
+//     componentWillUnmount() {
+//         console.log("I will unmount");
+//     }
+
 //     render() {
 //         const { task } = this.props;
 

@@ -1,7 +1,17 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import TaskItem from "./components/TaskItem.js";
 
 const App = () => {
+    const mounted = useRef(false);
+
+    useEffect(() => {
+        if (mounted.current === false) {
+            mounted.current = true;
+        } else {
+            console.log("Component was updated!");
+        }
+    });
+
     const [tasks, setTasks] = useState([
         {
             id: "1",
@@ -14,11 +24,17 @@ const App = () => {
             isCompleted: true,
         },
     ]);
+
+    const handleCleanTasks = () => {
+        setTasks([]);
+    };
+
     return (
         <>
             {tasks.map((task) => (
                 <TaskItem key={task.id} task={task} />
             ))}
+            <button onClick={handleCleanTasks}>Limpar tarefas</button>
         </>
     );
 };
@@ -47,6 +63,11 @@ export default App;
 //                 },
 //             ],
 //         };
+//     }
+
+//     componentDidUpdate(prevProps, prevState) {
+//         console.log(prevState);
+//         console.log("component was update");
 //     }
 
 //     handleStateChange() {
