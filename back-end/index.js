@@ -1,9 +1,10 @@
 // Importa a dependência Express e Dotenv
 const express = require("express");
 const dotenv = require("dotenv");
-const TaskRouter = require("./src/router/tasks.routes.js");
+const cors = require("cors");
 
 // Importar arquivos
+const TaskRouter = require("./src/router/tasks.routes.js");
 const connectToDatabase = require("./src/database/mongoose.database.js");
 
 // Inicializa o Dotenv
@@ -11,6 +12,7 @@ dotenv.config();
 
 // Inicializa o Express
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 // Inicializa o mongoose

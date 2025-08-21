@@ -1,17 +1,11 @@
-import { useState, useRef, useEffect } from "react";
+// Import de bibliotecas
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+// Import de componentes
 import TaskItem from "./components/TaskItem.js";
 
 const App = () => {
-    const mounted = useRef(false);
-
-    useEffect(() => {
-        if (mounted.current === false) {
-            mounted.current = true;
-        } else {
-            console.log("Component was updated!");
-        }
-    });
-
     const [tasks, setTasks] = useState([
         {
             id: "1",
@@ -25,16 +19,25 @@ const App = () => {
         },
     ]);
 
-    const handleCleanTasks = () => {
-        setTasks([]);
+    const fetchTasks = async () => {
+        try {
+            const response = await axios.get(
+                "https://fsc-fullstack.onrender.com/tasks"
+            );
+        } catch (error) {
+            console.log(error);
+        }
     };
+
+    useEffect(() => {
+        fetchTasks();
+    });
 
     return (
         <>
             {tasks.map((task) => (
                 <TaskItem key={task.id} task={task} />
             ))}
-            <button onClick={handleCleanTasks}>Limpar tarefas</button>
         </>
     );
 };

@@ -96,7 +96,7 @@ O deploy foi realizado na plataforma Render e nela foi integrado o pipeline de C
 
 ### React e suas configurações iniciais
 
-O React é um framework de grande potencial, pelo fato de ser um SPA (**S**ingle **P**age **A**pplication) apresenta um retorno muito mais rápido ao usuário, elevando sua experiencia na utilização da aplicação.
+O React é uma biblioteca de grande potencial, pelo fato de ser um SPA (**S**ingle **P**age **A**pplication) apresenta um retorno muito mais rápido ao usuário, elevando sua experiencia na utilização da aplicação.
 Basicamente seu funcionamento se baseia no principio de alteração do Virtual DOM, ou seja, nós não alteramos o DOM original diretamente, ao invés disso, o React cria um Virtual DOM que é uma copia do DOM, sendo mais rapida e leve, em seguida, qualquer alteração realizada no front (por exemplo acessar uma outra área da aplicação) é realizada no Virtual DOM. Em seguida o React compara o Virtual DOM com o DOM original e ele realiza a alteração no DOM original.
 Destaco alguns pontos importantes:
 
@@ -104,6 +104,15 @@ Destaco alguns pontos importantes:
 
 -   **JSX:** Diferentemente do html e javascript puro que existem de forma independente e um é importado no outro, o React existe o JSX, resumidamente é um código que incorpora html com java script, dessa forma a construção de UI é muito mais intuitiva.
 
--   **Props:** São informações que um componente "pai" passa para um componente "filho". Exemplo: um mesmo botão hora precisa ser verde hora precisa ser vermelho. Dessa forma passamos como prop uma costumização em determinado contexto, neste, se botão "cancelar" cor vermelha, se botão "confirmar" botão verde.
+-   **Props:** São informações que um componente "pai" passa para um componente "filho". Exemplo: um mesmo botão hora precisa ser verde hora precisa ser vermelho. Dessa forma passamos como prop uma customização em determinado contexto, neste, se botão "cancelar" cor vermelha, se botão "confirmar" botão verde.
 
--   **States:** É a "memória particular" de um componente. Ou seja, são dados que pertence ao componente e que podem mudar com o tempo (por exemplo o clique de um botão).
+-   **States:** É a "memória particular" de um componente. Ou seja, são dados que pertence e que podem mudar com o tempo (por exemplo o clique de um botão).
+
+Referente aos arquivos do React, temos os mais importantes como: _index.html_ (o html do qual o DOM original pertece, é o ponto de entrada do navegador), o _index.js_ (onde são importados todos os pontos importantes para rodar a aplicação -tais como a biblioteca em si, a parte especifica da biblioteca para funcionar em navegadores, o arquivo de estilização, etc. É o ponto de entrada da aplicação React), _App.js_ (o componente que, por convenção, é o pai de todos os outros componentes), o _reportWebVitals.js_ (responsável pela medição de performance da aplicação), etc.
+
+Resumidamente o processo para codificação no JSX utilizando o props e o state se inicia com a importação dos hooks necessários para a aplicação, dentre eles o useState. Normalmente cria-se uma pasta dentro do src chamada de components, onde será criado um arquivo para cada componente e, esses são então importados no App.js (normalmente pai dos componentes).
+
+Essa componentização pode ser feita tanto por _componentes de classe_ (forma mais antiga, mais complexa, código maior (observar os comentarios que contem um exemplo)), quanto por _componentes funcionais_ (forma mais moderno, mais prática).
+
+Outro ponto de interece é o lifecycle dos componentes (básicamente são 3 estados principais, o estado inicial, onde eles são montados, o estado de atualização e o estado de deleção ou desmonte). Pegue uma aplicação react por exemplo que esteja funcional, abra o console e interaja na aplicação enquanto se atenta ao html. será possível observar a criação, atualização e deleção de itens no DOM por meio dessas interações.
+**obs:** Nos componentes funcionais modernos é possível controlar os momentos do lifecycle, utilizando useEffect.
