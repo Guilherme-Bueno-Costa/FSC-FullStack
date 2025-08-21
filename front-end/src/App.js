@@ -21,9 +21,11 @@ const App = () => {
 
     const fetchTasks = async () => {
         try {
-            const response = await axios.get(
+            const { data } = await axios.get(
                 "https://fsc-fullstack.onrender.com/tasks"
             );
+
+            setTasks(data);
         } catch (error) {
             console.log(error);
         }
