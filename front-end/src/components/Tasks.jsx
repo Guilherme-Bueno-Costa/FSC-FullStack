@@ -1,10 +1,13 @@
+// Import de dependências
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+// Import de functions
 import TaskItem from "./TaskItem.jsx";
+import AddTask from "./AddTask.jsx";
+
+// import de arquivos
 import "./Tasks.scss";
-import "./CustomInput.jsx";
-import CustomInput from "./CustomInput.jsx";
 
 const Tasks = () => {
     const [tasks, setTasks] = useState([]);
@@ -32,7 +35,7 @@ const Tasks = () => {
 
                 <div className="last-tasks">
                     <h3>Últimas Tarefas</h3>
-                    <CustomInput />
+                    <AddTask />
                     <div className="tasks-list">
                         {tasks
                             .filter((task) => task.isCompleted === false)

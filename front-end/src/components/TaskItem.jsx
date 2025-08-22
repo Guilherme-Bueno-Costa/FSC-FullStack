@@ -4,38 +4,36 @@ import "./TaskItem.scss";
 
 const TaskItem = ({ task }) => {
     return (
-        <>
-            <div className="app-container">
-                <div className="task-item-container">
-                    <div className="task-description">
-                        <label
+        <div className="app-container">
+            <div className="task-item-container">
+                <div className="task-description">
+                    <label
+                        className={
+                            task.isCompleted
+                                ? "checkbox-container-completed"
+                                : "checkbox-container"
+                        }
+                    >
+                        {task.description}{" "}
+                        <input
+                            type="checkbox"
+                            defaultChecked={task.isCompleted}
+                        />
+                        <span
                             className={
                                 task.isCompleted
-                                    ? "checkbox-container-completed"
-                                    : "checkbox-container"
+                                    ? "checkmark completed"
+                                    : "checkmark"
                             }
-                        >
-                            {task.description}{" "}
-                            <input
-                                type="checkbox"
-                                defaultChecked={task.isCompleted}
-                            />
-                            <span
-                                className={
-                                    task.isCompleted
-                                        ? "checkmark completed"
-                                        : "checkmark"
-                                }
-                            ></span>
-                        </label>
-                    </div>
+                        ></span>
+                    </label>
+                </div>
 
-                    <div className="delete">
-                        <MdDelete />
-                    </div>
+                <div className="delete">
+                    <MdDelete />
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 
