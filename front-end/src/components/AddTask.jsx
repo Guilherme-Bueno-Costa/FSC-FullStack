@@ -1,5 +1,7 @@
-// Import de functions
+// Import de dependências
 import { useState } from "react";
+
+// Import de functions
 import CustomInput from "./CustomInput";
 
 // Import de arquivos
@@ -18,7 +20,7 @@ const AddTask = () => {
                 <CustomInput
                     label="Adicionar tarefa..."
                     value={task}
-                    onChenge={onChange}
+                    onChange={onChange}
                 />
             </div>
         </div>
