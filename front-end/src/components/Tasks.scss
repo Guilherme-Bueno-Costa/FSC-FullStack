@@ -1,0 +1,44 @@
+// * {
+//     border: 1px solid white;
+// }
+
+.app-container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.tasks-container {
+    padding: 60px 85px;
+    display: flex;
+    flex-direction: column;
+    max-width: 40%;
+    height: 100vh;
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.125rem;
+        margin-top: 12px;
+    }
+
+    p {
+        margin-top: 12px;
+    }
+
+    .last-tasks {
+        flex: 1;
+        overflow-y: hidden;
+        flex-direction: column;
+    }
+
+    .completed-tasks {
+        flex: 1;
+        padding-top: 28px;
+    }
+
+    .tasks-list {
+        margin-top: 28px;
+    }
+}

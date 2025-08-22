@@ -1,45 +1,12 @@
 // Import de bibliotecas
-import { useState, useEffect } from "react";
-import axios from "axios";
 
 // Import de componentes
-import TaskItem from "./components/TaskItem.js";
+import Tasks from "./components/Tasks.jsx";
 
 const App = () => {
-    const [tasks, setTasks] = useState([
-        {
-            id: "1",
-            description: "Estudar programação",
-            isCompleted: false,
-        },
-        {
-            id: "2",
-            description: "Ler",
-            isCompleted: true,
-        },
-    ]);
-
-    const fetchTasks = async () => {
-        try {
-            const { data } = await axios.get(
-                "https://fsc-fullstack.onrender.com/tasks"
-            );
-
-            setTasks(data);
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
-    useEffect(() => {
-        fetchTasks();
-    });
-
     return (
         <>
-            {tasks.map((task) => (
-                <TaskItem key={task.id} task={task} />
-            ))}
+            <Tasks />
         </>
     );
 };
