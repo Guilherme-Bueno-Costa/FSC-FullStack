@@ -1,12 +1,30 @@
+// Import de dependencias
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { ToastContainer, Flip } from "react-toastify";
+
+// Import de arquivos
 import "./index.scss";
+
+// Import de functions
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
+        <ToastContainer
+            position="top-center"
+            autoClose={2000}
+            hideProgressBar={false}
+            newestOnTop={true}
+            closeOnClick={true}
+            rtl={false}
+            pauseOnHover={true}
+            pauseOnFocusLoss={true}
+            theme="dark"
+            transition={Flip}
+        />
         <App />
     </React.StrictMode>
 );
