@@ -49,10 +49,10 @@ const TaskItem = ({ task, fetchTasks }) => {
                                 : "checkbox-container"
                         }
                     >
-                        {task.description}{" "}
+                        {task.description}
                         <input
                             type="checkbox"
-                            defaultChecked={task.isCompleted}
+                            checked={task.isCompleted}
                             onChange={(e) => handleTaskUpdate(e)}
                         />
                         <span
