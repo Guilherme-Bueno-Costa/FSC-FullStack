@@ -21,6 +21,23 @@ const TaskItem = ({ task, fetchTasks }) => {
         }
     };
 
+    const handleTaskUpdate = async (e) => {
+        try {
+            await axios.patch(
+                `https://fsc-fullstack.onrender.com/tasks/${task._id}`,
+                {
+                    isCompleted: e.target.checked,
+                }
+            );
+
+            await fetchTasks();
+
+            toast.success(`A tarefa [${task.description}] foi atualizada!`);
+        } catch (error) {
+            toast.error("Erro ao atualizar a tarefa!");
+        }
+    };
+
     return (
         <div className="app-container">
             <div className="task-item-container">
@@ -36,6 +53,7 @@ const TaskItem = ({ task, fetchTasks }) => {
                         <input
                             type="checkbox"
                             defaultChecked={task.isCompleted}
+                            onChange={(e) => handleTaskUpdate(e)}
                         />
                         <span
                             className={
