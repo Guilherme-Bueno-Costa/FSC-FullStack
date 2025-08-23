@@ -1,8 +1,26 @@
+// Import de dependências
 import { MdDelete } from "react-icons/md";
+import axios from "axios";
+import { toast } from "react-toastify";
 
+// Import de arquivos
 import "./TaskItem.scss";
 
-const TaskItem = ({ task }) => {
+const TaskItem = ({ task, fetchTasks }) => {
+    const handleTaskDeletion = async () => {
+        try {
+            await axios.delete(
+                `https://fsc-fullstack.onrender.com/tasks/${task._id}`
+            );
+
+            await fetchTasks();
+
+            toast.success(`Tarefa [${task.description}] deletada com sucesso!`);
+        } catch (error) {
+            toast.error("Erro ao deletar a tarefa!");
+        }
+    };
+
     return (
         <div className="app-container">
             <div className="task-item-container">
@@ -30,7 +48,7 @@ const TaskItem = ({ task }) => {
                 </div>
 
                 <div className="delete">
-                    <MdDelete />
+                    <MdDelete onClick={handleTaskDeletion} />
                 </div>
             </div>
         </div>

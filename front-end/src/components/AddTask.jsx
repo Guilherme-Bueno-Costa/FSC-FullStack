@@ -32,9 +32,10 @@ const AddTask = ({ fetchTasks }) => {
                 description: task,
                 isCompleted: false,
             });
-            toast.success("Tarefa adicionada com sucesso!");
 
             await fetchTasks();
+
+            toast.success("Tarefa adicionada com sucesso!");
 
             setTask("");
         } catch (error) {
@@ -43,17 +44,15 @@ const AddTask = ({ fetchTasks }) => {
     };
 
     return (
-        <div className="app-container">
-            <div className="add-task-container">
-                <CustomInput
-                    label="Adicionar tarefa..."
-                    value={task}
-                    onChange={onChange}
-                />
-                <CustomButton onClick={handleTaskAddition}>
-                    <FaPlus size={14} color="#ffffff" />
-                </CustomButton>
-            </div>
+        <div className="add-task-container">
+            <CustomInput
+                label="Adicionar tarefa..."
+                value={task}
+                onChange={onChange}
+            />
+            <CustomButton onClick={handleTaskAddition}>
+                <FaPlus size={14} color="#ffffff" />
+            </CustomButton>
         </div>
     );
 };

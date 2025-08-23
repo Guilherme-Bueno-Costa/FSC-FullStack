@@ -26,7 +26,7 @@ const Tasks = () => {
 
     useEffect(() => {
         fetchTasks();
-    });
+    }, []);
 
     return (
         <div className="app-container">
@@ -40,7 +40,10 @@ const Tasks = () => {
                         {tasks
                             .filter((task) => task.isCompleted === false)
                             .map((lastTask) => (
-                                <TaskItem task={lastTask} />
+                                <TaskItem
+                                    task={lastTask}
+                                    fetchTasks={fetchTasks}
+                                />
                             ))}
                     </div>
                 </div>
