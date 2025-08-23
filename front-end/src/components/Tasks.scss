@@ -11,7 +11,7 @@
     padding: 60px 85px;
     display: flex;
     flex-direction: column;
-    max-width: 40%;
+    max-width: 50%;
     height: 100vh;
 
     h2 {
@@ -25,16 +25,25 @@
 
     .last-tasks {
         flex: 1;
-        overflow-y: hidden;
         flex-direction: column;
+        max-height: 50%;
+        overflow-y: hidden;
+    }
+
+    .tasks-list {
+        margin-top: 28px;
+        overflow-y: scroll;
+        height: 50%;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 
     .completed-tasks {
         flex: 1;
         padding-top: 28px;
-    }
-
-    .tasks-list {
-        margin-top: 28px;
+        overflow-y: hidden;
+        max-height: 50%;
     }
 }
