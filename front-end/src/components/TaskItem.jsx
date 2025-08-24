@@ -16,7 +16,7 @@ const TaskItem = ({ task, fetchTasks }) => {
             await fetchTasks();
 
             toast.success(`Tarefa [${task.description}] deletada com sucesso!`);
-        } catch (error) {
+        } catch (_e) {
             toast.error("Erro ao deletar a tarefa!");
         }
     };
@@ -33,7 +33,7 @@ const TaskItem = ({ task, fetchTasks }) => {
             await fetchTasks();
 
             toast.success(`A tarefa [${task.description}] foi atualizada!`);
-        } catch (error) {
+        } catch (_e) {
             toast.error("Erro ao atualizar a tarefa!");
         }
     };

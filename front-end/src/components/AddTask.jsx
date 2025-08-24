@@ -38,8 +38,8 @@ const AddTask = ({ fetchTasks }) => {
             toast.success("Tarefa adicionada com sucesso!");
 
             setTask("");
-        } catch (error) {
-            return toast.error("Algo deu errado");
+        } catch (_e) {
+            toast.error("Algo deu errado");
         }
     };
 

@@ -1,6 +1,7 @@
 // Import de dependências
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 // Import de functions
 import TaskItem from "./TaskItem.jsx";
@@ -19,8 +20,8 @@ const Tasks = () => {
             );
 
             setTasks(data);
-        } catch (error) {
-            console.log(error);
+        } catch (_e) {
+            toast.error("Não foi possível carregar as tarefas");
         }
     };
 
