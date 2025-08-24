@@ -1,12 +1,17 @@
-// Import de bibliotecas
+// Import de arquivos
+import "./App.scss";
 
 // Import de componentes
 import Tasks from "./components/Tasks.jsx";
+import Sidebar from "./components/Sidebar.jsx";
 
 const App = () => {
     return (
         <>
-            <Tasks />
+            <div className="app-container">
+                <Sidebar />
+                <Tasks />
+            </div>
         </>
     );
 };

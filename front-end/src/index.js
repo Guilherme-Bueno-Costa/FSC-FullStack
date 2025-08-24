@@ -7,7 +7,7 @@ import { ToastContainer, Flip } from "react-toastify";
 import "./index.scss";
 
 // Import de functions
-import App from "./App";
+import App from "./App.jsx";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

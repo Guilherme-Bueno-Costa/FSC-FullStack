@@ -39,35 +39,33 @@ const TaskItem = ({ task, fetchTasks }) => {
     };
 
     return (
-        <div className="app-container">
-            <div className="task-item-container">
-                <div className="task-description">
-                    <label
+        <div className="task-item-container">
+            <div className="task-description">
+                <label
+                    className={
+                        task.isCompleted
+                            ? "checkbox-container-completed"
+                            : "checkbox-container"
+                    }
+                >
+                    {task.description}
+                    <input
+                        type="checkbox"
+                        checked={task.isCompleted}
+                        onChange={(e) => handleTaskUpdate(e)}
+                    />
+                    <span
                         className={
                             task.isCompleted
-                                ? "checkbox-container-completed"
-                                : "checkbox-container"
+                                ? "checkmark completed"
+                                : "checkmark"
                         }
-                    >
-                        {task.description}
-                        <input
-                            type="checkbox"
-                            checked={task.isCompleted}
-                            onChange={(e) => handleTaskUpdate(e)}
-                        />
-                        <span
-                            className={
-                                task.isCompleted
-                                    ? "checkmark completed"
-                                    : "checkmark"
-                            }
-                        ></span>
-                    </label>
-                </div>
+                    ></span>
+                </label>
+            </div>
 
-                <div className="delete">
-                    <MdDelete onClick={handleTaskDeletion} />
-                </div>
+            <div className="delete">
+                <MdDelete onClick={handleTaskDeletion} />
             </div>
         </div>
     );

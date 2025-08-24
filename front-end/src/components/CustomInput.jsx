@@ -9,26 +9,24 @@ const CustomInput = ({ label, value, onChange, onEnterPress }) => {
     };
 
     return (
-        <div className="app-container">
-            <div className="custom-input-container">
-                <input
-                    type="text"
-                    className="custom-input"
-                    value={value}
-                    onChange={(e) => onChange(e)}
-                    onKeyDown={(e) => handleKeyDown(e)}
-                />
+        <div className="custom-input-container">
+            <input
+                type="text"
+                className="custom-input"
+                value={value}
+                onChange={(e) => onChange(e)}
+                onKeyDown={(e) => handleKeyDown(e)}
+            />
 
-                {label ? (
-                    <label
-                        className={`${
-                            value.length > 0 ? "shrink" : ""
-                        } custom-input-label`}
-                    >
-                        {label}
-                    </label>
-                ) : null}
-            </div>
+            {label ? (
+                <label
+                    className={`${
+                        value.length > 0 ? "shrink" : ""
+                    } custom-input-label`}
+                >
+                    {label}
+                </label>
+            ) : null}
         </div>
     );
 };
