@@ -1,22 +1,20 @@
 // Import de arquivos
-import "./App.scss";
+import './App.scss'
 
 // Import de componentes
-import Tasks from "./components/Tasks.jsx";
-import Sidebar from "./components/Sidebar.jsx";
+import Tasks from './components/Tasks.jsx'
+import Sidebar from './components/Sidebar.jsx'
 
 const App = () => {
-    return (
-        <>
-            <div className="app-container">
-                <Sidebar />
-                <Tasks />
-            </div>
-        </>
-    );
-};
+  return (
+    <div className='app-container'>
+      <Sidebar />
+      <Tasks />
+    </div>
+  )
+}
 
-export default App;
+export default App
 
 // Para usar componentes de classe segue exemplo abaixo
 // import React from "react";

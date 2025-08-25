@@ -1,75 +1,75 @@
 // Import de dependências
-import { useState, useEffect, useMemo } from "react";
-import axios from "axios";
-import { toast } from "react-toastify";
+import { useState, useEffect, useMemo } from 'react'
+import axios from 'axios'
+import { toast } from 'react-toastify'
 
 // Import de functions
-import TaskItem from "./TaskItem.jsx";
-import AddTask from "./AddTask.jsx";
+import TaskItem from './TaskItem.jsx'
+import AddTask from './AddTask.jsx'
 
 // import de arquivos
-import "./Tasks.scss";
+import './Tasks.scss'
 
 const Tasks = () => {
-    const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([])
 
-    const fetchTasks = async () => {
-        try {
-            const { data } = await axios.get(
-                "https://fsc-fullstack.onrender.com/tasks"
-            );
+  const fetchTasks = async () => {
+    try {
+      const { data } = await axios.get(
+        'https://fsc-fullstack.onrender.com/tasks'
+      )
 
-            setTasks(data);
-        } catch (_e) {
-            toast.error("Não foi possível carregar as tarefas");
-        }
-    };
+      setTasks(data)
+    } catch (_e) {
+      toast.error('Não foi possível carregar as tarefas')
+    }
+  }
 
-    const lastTasks = useMemo(() => {
-        return tasks.filter((task) => task.isCompleted === false);
-    }, [tasks]);
+  const lastTasks = useMemo(() => {
+    return tasks.filter((task) => task.isCompleted === false)
+  }, [tasks])
 
-    const completedTasks = useMemo(() => {
-        return tasks.filter((task) => task.isCompleted === true);
-    }, [tasks]);
+  const completedTasks = useMemo(() => {
+    return tasks.filter((task) => task.isCompleted === true)
+  }, [tasks])
 
-    useEffect(() => {
-        fetchTasks();
-    }, []);
+  useEffect(() => {
+    fetchTasks()
+  }, [])
 
-    return (
-        <div className="tasks-container">
-            <h2>Minhas Tarefas</h2>
+  return (
+    <div className='tasks-container'>
+      <h2>Minhas Tarefas</h2>
 
-            <div className="last-tasks">
-                <h3>Últimas Tarefas</h3>
-                <AddTask fetchTasks={fetchTasks} />
-                <div className="tasks-list">
-                    {lastTasks.map((lastTask) => (
-                        <TaskItem
-                            key={lastTask._id}
-                            task={lastTask}
-                            fetchTasks={fetchTasks}
-                        />
-                    ))}
-                </div>
-            </div>
-
-            <div className="completed-tasks">
-                <h3>Tarefas Concluídas</h3>
-
-                <div className="tasks-list">
-                    {completedTasks.map((completedTask) => (
-                        <TaskItem
-                            key={completedTask._id}
-                            task={completedTask}
-                            fetchTasks={fetchTasks}
-                        />
-                    ))}
-                </div>
-            </div>
+      <div className='last-tasks'>
+        <h3>Últimas Tarefas</h3>
+        <AddTask fetchTasks={fetchTasks} />
+        <div className='tasks-list'>
+          {lastTasks.map((lastTask) => (
+            <TaskItem
+              key={lastTask._id}
+              task={lastTask}
+              fetchTasks={fetchTasks}
+            />
+          ))}
         </div>
-    );
-};
+      </div>
 
-export default Tasks;
+      <div className='completed-tasks'>
+        <h3>Tarefas Concluídas</h3>
+
+        <div className='tasks-list'>
+          {completedTasks.map((completedTask) => (
+            <TaskItem
+              key={completedTask._id}
+              task={completedTask}
+              fetchTasks={fetchTasks}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default Tasks

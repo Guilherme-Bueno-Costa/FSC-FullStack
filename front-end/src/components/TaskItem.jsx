@@ -1,77 +1,71 @@
 // Import de dependências
-import { MdDelete } from "react-icons/md";
-import axios from "axios";
-import { toast } from "react-toastify";
+import { MdDelete } from 'react-icons/md'
+import axios from 'axios'
+import { toast } from 'react-toastify'
 
 // Import de arquivos
-import "./TaskItem.scss";
+import './TaskItem.scss'
 
 const TaskItem = ({ task, fetchTasks }) => {
-    const handleTaskDeletion = async () => {
-        try {
-            await axios.delete(
-                `https://fsc-fullstack.onrender.com/tasks/${task._id}`
-            );
+  const handleTaskDeletion = async () => {
+    try {
+      await axios.delete(`https://fsc-fullstack.onrender.com/tasks/${task._id}`)
 
-            await fetchTasks();
+      await fetchTasks()
 
-            toast.success(`Tarefa [${task.description}] deletada com sucesso!`);
-        } catch (_e) {
-            toast.error("Erro ao deletar a tarefa!");
+      toast.success(`Tarefa [${task.description}] deletada com sucesso!`)
+    } catch (_e) {
+      toast.error('Erro ao deletar a tarefa!')
+    }
+  }
+
+  const handleTaskUpdate = async (e) => {
+    try {
+      await axios.patch(
+        `https://fsc-fullstack.onrender.com/tasks/${task._id}`,
+        {
+          isCompleted: e.target.checked
         }
-    };
+      )
 
-    const handleTaskUpdate = async (e) => {
-        try {
-            await axios.patch(
-                `https://fsc-fullstack.onrender.com/tasks/${task._id}`,
-                {
-                    isCompleted: e.target.checked,
-                }
-            );
+      await fetchTasks()
 
-            await fetchTasks();
+      toast.success(`A tarefa [${task.description}] foi atualizada!`)
+    } catch (_e) {
+      toast.error('Erro ao atualizar a tarefa!')
+    }
+  }
 
-            toast.success(`A tarefa [${task.description}] foi atualizada!`);
-        } catch (_e) {
-            toast.error("Erro ao atualizar a tarefa!");
-        }
-    };
+  return (
+    <div className='task-item-container'>
+      <div className='task-description'>
+        <label
+          className={
+            task.isCompleted
+              ? 'checkbox-container-completed'
+              : 'checkbox-container'
+          }
+        >
+          {task.description}
+          <input
+            type='checkbox'
+            checked={task.isCompleted}
+            onChange={(e) => handleTaskUpdate(e)}
+          />
+          <span
+            className={task.isCompleted ? 'checkmark completed' : 'checkmark'}
+          ></span>
+        </label>
+      </div>
 
-    return (
-        <div className="task-item-container">
-            <div className="task-description">
-                <label
-                    className={
-                        task.isCompleted
-                            ? "checkbox-container-completed"
-                            : "checkbox-container"
-                    }
-                >
-                    {task.description}
-                    <input
-                        type="checkbox"
-                        checked={task.isCompleted}
-                        onChange={(e) => handleTaskUpdate(e)}
-                    />
-                    <span
-                        className={
-                            task.isCompleted
-                                ? "checkmark completed"
-                                : "checkmark"
-                        }
-                    ></span>
-                </label>
-            </div>
+      <div className='delete'>
+        <MdDelete onClick={handleTaskDeletion} />
+      </div>
+    </div>
+  )
+}
 
-            <div className="delete">
-                <MdDelete onClick={handleTaskDeletion} />
-            </div>
-        </div>
-    );
-};
-
-export default TaskItem;
+export default TaskItem
 // Mesmo que module.exports = TaskItem
 
 // Para usar Componentes de Classe segue abaixo exemplo

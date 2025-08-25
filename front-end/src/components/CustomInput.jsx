@@ -1,14 +1,14 @@
 // Import de arquivos
-import "./CustomInput.scss";
+import './CustomInput.scss'
 
 const CustomInput = ({ label, value, onChange, onEnterPress }) => {
-    const handleKeyDown = (e) => {
-        if (e.key === "Enter") {
-            onEnterPress();
-        }
-    };
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      onEnterPress()
+    }
+  }
 
-    return (
+  return (
         <div className="custom-input-container">
             <input
                 type="text"
@@ -18,17 +18,19 @@ const CustomInput = ({ label, value, onChange, onEnterPress }) => {
                 onKeyDown={(e) => handleKeyDown(e)}
             />
 
-            {label ? (
+            {label
+              ? (
                 <label
                     className={`${
-                        value.length > 0 ? "shrink" : ""
+                        value.length > 0 ? 'shrink' : ''
                     } custom-input-label`}
                 >
                     {label}
                 </label>
-            ) : null}
+                )
+              : null}
         </div>
-    );
-};
+  )
+}
 
-export default CustomInput;
+export default CustomInput
