@@ -1,0 +1,6 @@
+{
+  "extends": ["react-app", "react-app/jest", "standard"],
+  "rules": {
+    "react/react-in-jsx-scope": "off"
+  }
+}
