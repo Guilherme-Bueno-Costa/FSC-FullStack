@@ -28,7 +28,7 @@ const AddTask = ({ fetchTasks }) => {
         )
       }
 
-      await axios.post('https://fsc-fullstack.onrender.com/tasks', {
+      await axios.post(`${process.env.REACT_APP_API_URL}/tasks`, {
         description: task,
         isCompleted: false
       })

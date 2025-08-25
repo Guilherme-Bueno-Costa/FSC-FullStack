@@ -15,9 +15,7 @@ const Tasks = () => {
 
   const fetchTasks = async () => {
     try {
-      const { data } = await axios.get(
-        'https://fsc-fullstack.onrender.com/tasks'
-      )
+      const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/tasks`)
 
       setTasks(data)
     } catch (_e) {
