@@ -114,5 +114,5 @@ Resumidamente o processo para codificação no JSX utilizando o props e o state 
 
 Essa componentização pode ser feita tanto por _componentes de classe_ (forma mais antiga, mais complexa, código maior (observar os comentarios que contem um exemplo)), quanto por _componentes funcionais_ (forma mais moderno, mais prática).
 
-Outro ponto de interece é o lifecycle dos componentes (básicamente são 3 estados principais, o estado inicial, onde eles são montados, o estado de atualização e o estado de deleção ou desmonte). Pegue uma aplicação react por exemplo que esteja funcional, abra o console e interaja na aplicação enquanto se atenta ao html. será possível observar a criação, atualização e deleção de itens no DOM por meio dessas interações.
+Outro ponto de interesse é o lifecycle dos componentes (básicamente são 3 estados principais, o estado inicial, onde eles são montados, o estado de atualização e o estado de deleção ou desmonte). Pegue uma aplicação react por exemplo que esteja funcional, abra o console e interaja na aplicação enquanto se atenta ao html. será possível observar a criação, atualização e deleção de itens no DOM por meio dessas interações.
 **obs:** Nos componentes funcionais modernos é possível controlar os momentos do lifecycle, utilizando useEffect.
