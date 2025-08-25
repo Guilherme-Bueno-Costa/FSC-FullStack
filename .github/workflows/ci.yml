@@ -1,28 +1,51 @@
-name: CI + Deploy to Render
+name: Monorepo CI + CD
 
 on:
-    pull_request:
     push:
         branches: [task-manager-fsc]
 
 jobs:
-    ci:
+    test_backend:
+        name: Testes Back-end
         runs-on: ubuntu-latest
         steps:
-            # Step 1: Pega o código do repositório
             - uses: actions/checkout@v3
 
-            # Step 2: Roda testes
-            - name: Run tests
+            - name: Instalar dependências e rodar testes do Back-end
               run: |
                   cd back-end
                   npm install
                   npm test
 
-            # Step 3: Só faz deploy se tiver na branch main e os testes passarem
-            - name: Deploy to Render
-              if: github.ref == 'refs/heads/task-manager-fsc'
+    test_frontend:
+        name: Testes Front-end
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+
+            - name: Instalar dependências e rodar testes do Front-end
+              run: |
+                  cd front-end
+                  npm install
+                  # Adicione o comando de testes do seu front-end aqui, se tiver um
+                  # Ex: npm test ou npm run test
+
+    deploy:
+        name: Deploy para o Render
+        needs: [test_backend, test_frontend]
+        if: success() && (github.ref == 'refs/heads/task-manager-fsc' || github.ref == 'refs/heads/main')
+        runs-on: ubuntu-latest
+        steps:
+            # Passo 1: Deploy do Back-end
+            - name: Trigger Deploy do Back-end
               env:
-                  deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+                  deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL}}
+              run: |
+                  curl "$deploy_url"
+
+            # Passo 2: Deploy do Front-end
+            - name: Trigger Deploy do Front-end
+              env:
+                  deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL_FRONTEND }}
               run: |
                   curl "$deploy_url"
