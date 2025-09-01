@@ -4,7 +4,7 @@ const { Schema, model } = require("mongoose");
 const TaskSchema = Schema({
     description: {
         type: String,
-        require: true,
+        required: true,
     },
     isCompleted: {
         type: Boolean,
