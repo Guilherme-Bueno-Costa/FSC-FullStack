@@ -2,7 +2,6 @@
 const id: number = 10;
 const course: string = "Full Stack Club";
 const isPublished: boolean = false;
-
 let id2: any; //anula a tipagem do typescript
 
 // Arrays (listas)
