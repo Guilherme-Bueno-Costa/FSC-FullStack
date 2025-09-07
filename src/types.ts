@@ -49,3 +49,5 @@ sum(2, 6);
 const printMessage = (message: string) => {
     console.log(message); // Quando uma função não retorna nada ela é classificada como type void. Podemos aplicar o :void para garantir que ela nao retorne nada se esse for o objetivo
 };
+
+export {};
